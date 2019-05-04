@@ -7,6 +7,11 @@ services:
   keycloak:
     image: 'jboss/keycloak'
     environment:
-      - KEYCLOAK_PASSWORD=pass
+      - KEYCLOAK_PASSWORD=admin
       - KEYCLOAK_USER=admin
+      - DB_VENDOR=h2
       - PROXY_ADDRESS_FORWARDING=true
+  microservice:
+    image: 'dorbsz/simple-microservice'
+    ports:
+      - '8888:80'
